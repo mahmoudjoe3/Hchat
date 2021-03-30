@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/jjjjj"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+    <TextView
+        android:id="@+id/empty_chat_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Empty Chat"
+        android:textColor="#F6D46E"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textSize="24sp"
+        android:fontFamily="monospace"
+        android:visibility="gone"
+        />
+
+    <ListView
+        android:id="@+id/messageListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/linearLayout"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:divider="@android:color/transparent"
+        android:stackFromBottom="true"
+        android:transcriptMode="alwaysScroll"
+        tools:listitem="@layout/item_message"
+        />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            app:cardBackgroundColor="@color/colorBGDark"
+            app:cardCornerRadius="10dp"
+            android:layout_marginEnd="3dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:orientation="vertical">
+                <ImageView android:id="@+id/image_msg"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="3dp"
+                    android:visibility="gone"
+                    />
+                <ProgressBar
+                    android:id="@+id/image_msg_selctor_progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="30dp"
+                    android:visibility="gone"
+                    />
+                <ImageButton
+                    android:id="@+id/remove_img_msg"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignEnd="@id/image_msg"
+                    android:background="#00ffffff"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/x_button"
+                    android:visibility="gone"
+                    />
+
+                <EditText
+                    android:id="@+id/messageEditText"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_below="@id/image_msg"
+                    android:inputType="textMultiLine"
+                    android:hint="Type a message"
+                    android:textColor="@color/colorFGWhite"
+                    android:textColorHint="@color/colorHint"
+                     />
+            </RelativeLayout>
+                <ImageButton
+                    android:id="@+id/photoPickerButton"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/buttom_send_shap"
+                    android:src="@drawable/ic_baseline_photo_camera_24" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageButton
+            android:id="@+id/sendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="2dp"
+            android:padding="10dp"
+            android:background="@drawable/buttom_send_shap"
+
+            android:src="@drawable/ic_send" />
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"/>
+</RelativeLayout>
